@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bathroom Tracker</string>
+    <string name="action_settings">Settings</string>
+    <string name="add">Add This Location</string>
+    <string name="add_a_place">Name New Location</string>
+    <string name="add_hint">ex. Home</string>
+    <string name="add_button">Add New Bathroom</string>
+    <string name="countText">Amount You\'ve Used Bathroom:</string>
+    <string name="countTitle">Bathroom Information:</string>
+    <string name="remove_button">Remove Bathroom</string>
+    <string name="pic">Change Bathroom Picture</string>
+    <string name="count">View Bathroom Info</string>
+
+</resources>
