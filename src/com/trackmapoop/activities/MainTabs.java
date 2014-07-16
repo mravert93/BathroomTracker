@@ -1,28 +1,28 @@
 package com.trackmapoop.activities;
 
-import com.crashlytics.android.Crashlytics;
 import java.util.ArrayList;
 
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
 import android.app.Dialog;
+import android.app.FragmentManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.maps.model.LatLng;
 import com.trackmapoop.data.Bathroom;
 import com.trackmapoop.data.BathroomContract;
@@ -216,6 +216,12 @@ public class MainTabs extends FragmentActivity implements CustomDialog.NoticeDia
 	public void onTabSelected(Tab arg0, android.app.FragmentTransaction arg1) {
 		viewPager.setCurrentItem(arg0.getPosition());
 		
+		//If maps tab is selected update the map
+		if(arg0.getPosition() == 1) {
+			TabsAdapter adapter = (TabsAdapter) viewPager.getAdapter();
+			MapFragment mapFrag = (MapFragment) adapter.getItem(arg0.getPosition());
+			mapFrag.onResume();
+		}
 	}
 
 	@Override

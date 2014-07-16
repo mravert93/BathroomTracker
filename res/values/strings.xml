@@ -12,5 +12,10 @@
     <string name="remove_button">Remove Bathroom</string>
     <string name="pic">Change Bathroom Picture</string>
     <string name="count">View Bathroom Info</string>
+    <string name="rating">Rate the Bathroom</string>
+    <string name="title_activity_login">Login</string>
+    <string name="username">Username</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
 
 </resources>

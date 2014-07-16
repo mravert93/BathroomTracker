@@ -81,6 +81,7 @@ public class MapFragment extends Fragment
     }
 	
 	public void setMarkers(ArrayList<Bathroom> baths) {
+		map.clear();
 		for(int i = 0; i < baths.size(); i++) {
 			Bathroom tmpbath = baths.get(i);
 			LatLng pos = new LatLng(tmpbath.getLat(), tmpbath.getLong());
@@ -96,11 +97,11 @@ public class MapFragment extends Fragment
         SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         map = mapFragment.getMap();
-		LatLngBounds bounds = map.getProjection().getVisibleRegion().latLngBounds;
 		
 		//Read from the database of locations
 		ArrayList<Bathroom> baths = readLocs();
 
+		//Set up location manager and set markers on map
 		setUpLocAndZoom();
 		lm.connect();
         setMarkers(baths);

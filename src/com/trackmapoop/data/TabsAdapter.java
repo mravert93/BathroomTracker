@@ -8,18 +8,22 @@ import com.trackmapoop.fragments.HomeFragment;
 import com.trackmapoop.fragments.MapFragment;
 
 public class TabsAdapter extends FragmentPagerAdapter {
+	private HomeFragment home;
+	private MapFragment map;
 	
 	public TabsAdapter(FragmentManager fm) {
 		super(fm);
+		home = new HomeFragment();
+		map = new MapFragment();
 	}
 	
 	@Override
 	public Fragment getItem(int index) {
 		switch(index) {
 		case 0:
-			return new HomeFragment();
+			return home;
 		default:
-			return new MapFragment();
+			return map;
 		}
 	}
 	

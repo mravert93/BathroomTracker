@@ -38,6 +38,13 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:text="@+id/countText" />
+
+        <ImageView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stars0_0" >
+        </ImageView>
         
     </LinearLayout>
 </LinearLayout>

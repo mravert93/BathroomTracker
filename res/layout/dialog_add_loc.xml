@@ -17,4 +17,12 @@
         android:layout_height="wrap_content"
         android:hint="@string/add_hint" />
 
+    <ImageView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="changeRating"
+        android:src="@drawable/stars0_0" >
+    </ImageView>
+    
 </LinearLayout>
