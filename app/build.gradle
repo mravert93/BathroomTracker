@@ -22,4 +22,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:20.0.0'
     compile 'com.google.android.gms:play-services:+'
     compile files('libs/crashlytics.jar')
+    compile files('libs/retrofit-1.6.1.jar')
+    compile files('libs/okhttp-2.0.0.jar')
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile files('libs/gson-2.3.jar')
 }

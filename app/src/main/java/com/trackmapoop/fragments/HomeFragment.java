@@ -1,6 +1,7 @@
 package com.trackmapoop.fragments;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.database.Cursor;
@@ -14,11 +15,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.trackmapoop.Managers.DatabaseManager;
 import com.trackmapoop.activities.R;
 import com.trackmapoop.data.Bathroom;
-import com.trackmapoop.data.BathroomContract;
-import com.trackmapoop.data.BathroomContract.BathroomDbHelper;
-import com.trackmapoop.data.BathroomContract.BathroomEntry;
 import com.trackmapoop.data.MyArrayAdapter;
 import com.trackmapoop.dialog.SelectDialog;
 
@@ -51,56 +50,20 @@ public class HomeFragment extends Fragment{
 	
 	//Method that fills the given list's array adapter
 	public void setAdapter(ListView list, Activity activity) {
+        DatabaseManager manager = DatabaseManager.openDatabase(getActivity());
         
-        ArrayList<Bathroom> baths = readLocs(activity);
-        ArrayList<String> titles = getTitles(baths);
-        ArrayList<String> locations = getLocs(baths);
-        ArrayList<String> counts = getCounts(baths);
+        List<Bathroom> baths = manager.getAllBathrooms();
+        List<String> titles = getTitles(baths);
+        List<String> locations = getLocs(baths);
+        List<String> counts = getCounts(baths);
 
         MyArrayAdapter adapter = new MyArrayAdapter(activity, titles, locations, counts);
         list.setAdapter(adapter);
 		
 	}
 	
-	public ArrayList<Bathroom> readLocs(Activity activity) {
-		ArrayList<Bathroom> locs = new ArrayList<Bathroom>();
-		
-		BathroomContract contract = new BathroomContract();
-		BathroomDbHelper mDbHelper = contract.new BathroomDbHelper(activity);
-		
-		SQLiteDatabase db = mDbHelper.getReadableDatabase();
-		
-		//projection of columns needed
-		String[] projection = {
-				BathroomEntry._ID,
-				BathroomEntry.TITLE_COL,
-				BathroomEntry.LAT_COL,
-				BathroomEntry.LONG_COL, 
-				BathroomEntry.COUNT };
-		
-		Cursor c = db.query(
-				BathroomEntry.TABLE_NAME, 
-				projection, 
-				null, null, null, null, null);
-		
-		if(c.moveToFirst()) {
-			do {
-				Bathroom bath = new Bathroom();
-				bath.setTitle(c.getString(1));
-				bath.setLat(Double.parseDouble(c.getString(2)));
-				bath.setLong(Double.parseDouble(c.getString(3)));
-				bath.setCount(Integer.parseInt(c.getString(4)));
-				
-				//Add new bath to array
-				locs.add(bath);
-			} while(c.moveToNext());
-		}
-		
-		return locs;
-	}
-	
-	public ArrayList<String> getTitles(ArrayList<Bathroom> baths) {
-		ArrayList<String> titles = new ArrayList<String>();
+	public List<String> getTitles(List<Bathroom> baths) {
+		List<String> titles = new ArrayList<String>();
 		
 		for(int i = 0; i < baths.size(); i++) {
 			Bathroom tmp = baths.get(i);
@@ -111,8 +74,8 @@ public class HomeFragment extends Fragment{
 		return titles;
 	}
 	
-	public ArrayList<String> getLocs(ArrayList<Bathroom> baths) {
-		ArrayList<String> locations = new ArrayList<String>();
+	public List<String> getLocs(List<Bathroom> baths) {
+		List<String> locations = new ArrayList<String>();
 		
 		for(int i = 0; i < baths.size(); i++) {
 			Bathroom tmp = baths.get(i);
@@ -125,8 +88,8 @@ public class HomeFragment extends Fragment{
 		return locations;
 	}
 	
-	public ArrayList<String> getCounts(ArrayList<Bathroom> baths) {
-		ArrayList<String> locations = new ArrayList<String>();
+	public List<String> getCounts(List<Bathroom> baths) {
+		List<String> locations = new ArrayList<String>();
 		
 		for(int i = 0; i < baths.size(); i++) {
 			Bathroom tmp = baths.get(i);

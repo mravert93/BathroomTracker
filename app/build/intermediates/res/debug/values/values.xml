@@ -720,14 +720,14 @@
     <!-- From: file:/home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/values/com_crashlytics_export_strings.xml -->
     <eat-comment />
 
-    <string name="com.crashlytics.android.build_id" translatable="false">4cbb23d8-6375-4d01-8538-1c91646f0388</string>
+    <string name="com.crashlytics.android.build_id" translatable="false">24015c88-f496-4149-9ae4-d42a36219721</string>
     <!-- From: file:/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/5.0.77/res/values/common_strings.xml -->
     <eat-comment />
 
     <string name="common_google_play_services_enable_button" msgid="2523291102206661146">Enable Google Play services</string>
     <string name="common_google_play_services_enable_text" msgid="227660514972886228">This app won\'t work unless you enable Google Play services.</string>
     <string name="common_google_play_services_enable_title" msgid="5122002158466380389">Enable Google Play services</string>
-    <string name="common_google_play_services_error_notification_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
+    <string name="common_google_play_services_error_notification_requested_by_msg">Requested by  <ns1:g id="app_name">%1$s</ns1:g></string>
     <string name="common_google_play_services_install_button" msgid="7153882981874058840">Get Google Play services</string>
     <string name="common_google_play_services_install_text_phone" msgid="2122112764540849864">This app won\'t run without Google Play services, which are missing from your phone.</string>
     <string name="common_google_play_services_install_text_tablet" msgid="7351599665250191022">This app won\'t run without Google Play services, which are missing from your tablet.</string>
@@ -756,6 +756,8 @@
     <string name="countText">Amount You\'ve Used Bathroom:</string>
     <string name="countTitle">Bathroom Information:</string>
     <string name="login">Login</string>
+    <string name="nearest_amenity">toilet</string>
+    <string name="nearest_mode">json</string>
     <string name="pic">Change Bathroom Picture</string>
     <string name="rating">Rate the Bathroom</string>
     <string name="register">Register</string>

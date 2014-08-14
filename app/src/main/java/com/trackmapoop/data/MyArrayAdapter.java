@@ -2,6 +2,7 @@ package com.trackmapoop.data;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,13 +19,13 @@ import com.trackmapoop.activities.R;
 
 public class MyArrayAdapter extends ArrayAdapter<String>{
 	private final Context mContext;
-	private final ArrayList<String> mTitles;
-	private final ArrayList<String> mLocs;
-	private final ArrayList<String> mCounts;
+	private final List<String> mTitles;
+	private final List<String> mLocs;
+	private final List<String> mCounts;
 	private String mPicName;
 	
-	public MyArrayAdapter(Context context, ArrayList<String> titles, 
-			ArrayList<String> locs, ArrayList<String> counts) {
+	public MyArrayAdapter(Context context, List<String> titles,
+			List<String> locs, List<String> counts) {
 	    super(context, R.layout.rowlayout);
 	    this.mContext = context;
 	    this.mTitles = titles;

@@ -1,0 +1,1 @@
+CREATE TABLE bathrooms ( title TEXT, longitude TEXT, latitude TEXT, count INTEGER );
