@@ -1,5 +1,6 @@
 package com.trackmapoop.data;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,10 +12,10 @@ public class TabsAdapter extends FragmentPagerAdapter {
 	private HomeFragment home;
 	private MapFragment map;
 	
-	public TabsAdapter(FragmentManager fm) {
+	public TabsAdapter(FragmentManager fm, Context context) {
 		super(fm);
-		home = new HomeFragment();
-		map = new MapFragment();
+		home = HomeFragment.newInstance(context);
+		map = MapFragment.newInstance(context);
 	}
 	
 	@Override

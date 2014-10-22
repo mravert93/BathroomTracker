@@ -1362,7 +1362,7 @@ containing a value of this type.
         public static final int end=0x7f08000c;
         public static final int expand_activities_button=0x7f080038;
         public static final int expanded_menu=0x7f08003e;
-        public static final int findNearestButton=0x7f08005d;
+        public static final int findNearestButton=0x7f08005e;
         public static final int grayscale=0x7f080024;
         public static final int holo_dark=0x7f080017;
         public static final int holo_light=0x7f080018;
@@ -1378,7 +1378,7 @@ containing a value of this type.
         public static final int locText=0x7f080061;
         public static final int location=0x7f080060;
         public static final int login=0x7f080051;
-        public static final int map=0x7f08005e;
+        public static final int map=0x7f08005d;
         public static final int match_parent=0x7f08001e;
         public static final int middle=0x7f08000b;
         public static final int monochrome=0x7f080025;

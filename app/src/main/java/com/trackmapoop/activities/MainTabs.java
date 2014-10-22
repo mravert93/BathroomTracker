@@ -65,7 +65,7 @@ public class MainTabs extends FragmentActivity implements CustomDialog.NoticeDia
         //Initialize
         viewPager = (ViewPager) findViewById(R.id.pager);
         mActionBar = getActionBar();
-        mTabsAdapter = new TabsAdapter(getSupportFragmentManager());
+        mTabsAdapter = new TabsAdapter(getSupportFragmentManager(), this);
         
         viewPager.setAdapter(mTabsAdapter);
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -161,13 +161,6 @@ public class MainTabs extends FragmentActivity implements CustomDialog.NoticeDia
 	@Override
 	public void onTabSelected(Tab arg0, android.app.FragmentTransaction arg1) {
 		viewPager.setCurrentItem(arg0.getPosition());
-		
-		//If maps tab is selected update the map
-		if(arg0.getPosition() == 1) {
-			TabsAdapter adapter = (TabsAdapter) viewPager.getAdapter();
-			MapFragment mapFrag = (MapFragment) adapter.getItem(arg0.getPosition());
-			mapFrag.onResume();
-		}
 	}
 
 	@Override

@@ -8,8 +8,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,17 +29,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.trackmapoop.Managers.DatabaseManager;
-import com.trackmapoop.Managers.WebCallsManager;
-import com.trackmapoop.activities.MainTabs;
 import com.trackmapoop.activities.R;
 import com.trackmapoop.async.NearestBRTask;
 import com.trackmapoop.data.BRConstants;
 import com.trackmapoop.data.Bathroom;
 import com.trackmapoop.data.NearestBathroomLocs;
-import com.trackmapoop.web.NearestBathroomsResponse;
 
 import retrofit.RetrofitError;
 
@@ -53,8 +47,11 @@ public class MapFragment extends Fragment
     private Button findNearestButton;
 	private GoogleMap map;
 	private LocationClient lm;
-	private LatLng myLoc;
 	public static Location currentLoc;
+
+    private Context mContext;
+
+    private boolean hasZoomed;
 	
 	// These settings are the same as the settings for the map. They will in fact give you updates
     // at the maximal rates currently possible.
@@ -67,12 +64,20 @@ public class MapFragment extends Fragment
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG, "Nearest Bathrooms Synced");
-            DatabaseManager manager = DatabaseManager.openDatabase(getActivity());
+            DatabaseManager manager = DatabaseManager.openDatabase(mContext);
 
             List<NearestBathroomLocs> nearestBathroomLocsList = manager.getNearestBathrooms();
             setNearestMarkers(nearestBathroomLocsList);
         }
     };
+
+    public static MapFragment newInstance(Context context)
+    {
+        MapFragment fragment = new MapFragment();
+        fragment.mContext = context;
+
+        return fragment;
+    }
 
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,23 +112,43 @@ public class MapFragment extends Fragment
     public void onPause() {
         super.onPause();
 
-        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(onBathroomSearchComplete);
+        LocalBroadcastManager.getInstance(mContext).unregisterReceiver(onBathroomSearchComplete);
 
         if (lm != null) {
             lm.disconnect();
         }
     }
 
-	public void setMarkers(List<Bathroom> baths) {
-		map.clear();
-		for(int i = 0; i < baths.size(); i++) {
-			Bathroom tmpbath = baths.get(i);
-			LatLng pos = new LatLng(tmpbath.getLat(), tmpbath.getLong());
-			
-			MarkerOptions marker = new MarkerOptions().position(pos).title(tmpbath.getTitle());
-			map.addMarker(marker);
-		}
+	@Override
+	public void onResume() {
+		super.onResume();
+
+        IntentFilter filter = new IntentFilter(BRConstants.NEAREST_BR_ACTION);
+        LocalBroadcastManager.getInstance(mContext).registerReceiver(onBathroomSearchComplete, filter);
+
+		//Read from the database of locations
+        DatabaseManager manager = DatabaseManager.openDatabase(mContext);
+		List<Bathroom> baths = manager.getAllBathrooms();
+        List<NearestBathroomLocs> nearest = manager.getNearestBathrooms();
+
+		//Set up location manager and set markers on map
+		lm = getLocationClient();
+		lm.connect();
+        hasZoomed = false;
+        setMarkers(baths);
+        setNearestMarkers(nearest);
 	}
+
+    public void setMarkers(List<Bathroom> baths) {
+        map.clear();
+        for(int i = 0; i < baths.size(); i++) {
+            Bathroom tmpbath = baths.get(i);
+            LatLng pos = new LatLng(tmpbath.getLat(), tmpbath.getLong());
+
+            MarkerOptions marker = new MarkerOptions().position(pos).title(tmpbath.getTitle());
+            map.addMarker(marker);
+        }
+    }
 
     public void setNearestMarkers(List<NearestBathroomLocs> nearestMarkers)
     {
@@ -136,36 +161,14 @@ public class MapFragment extends Fragment
         }
     }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-
-        IntentFilter filter = new IntentFilter(BRConstants.NEAREST_BR_ACTION);
-        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(onBathroomSearchComplete, filter);
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        map = mapFragment.getMap();
-		
-		//Read from the database of locations
-        DatabaseManager manager = DatabaseManager.openDatabase(getActivity());
-		List<Bathroom> baths = manager.getAllBathrooms();
-        List<NearestBathroomLocs> nearest = manager.getNearestBathrooms();
-
-		//Set up location manager and set markers on map
-		setUpLocAndZoom();
-		lm.connect();
-        setMarkers(baths);
-        setNearestMarkers(nearest);
-	}
-
 	//Sets up the location client and zooms into the current location
-	public void setUpLocAndZoom() {
+	public LocationClient getLocationClient() {
 		if(lm == null) {
-			lm = new LocationClient(
-					getActivity(),
+			return new LocationClient(
+					mContext,
 					this, this);
 		}
+        return lm;
 	}
 
 	@Override
@@ -177,10 +180,6 @@ public class MapFragment extends Fragment
 	@Override
 	public void onConnected(Bundle connectionHint) {
 		lm.requestLocationUpdates(REQUEST, this);
-		
-        currentLoc = lm.getLastLocation();
-        LatLng lat = new LatLng(currentLoc.getLatitude(), currentLoc.getLongitude());
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(lat, 14));
 	}
 
 	@Override
@@ -192,17 +191,23 @@ public class MapFragment extends Fragment
 	@Override
 	public void onLocationChanged(Location location) {
 		currentLoc = location;
-		
+
+        if (!hasZoomed)
+        {
+            hasZoomed = true;
+            LatLng lat = new LatLng(currentLoc.getLatitude(), currentLoc.getLongitude());
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(lat, 14));
+        }
 	}
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.findNearestButton)
         {
-            DatabaseManager manager = DatabaseManager.openDatabase(getActivity());
+            DatabaseManager manager = DatabaseManager.openDatabase(mContext);
             manager.deleteNearBathrooms();
 
-            NearestBRTask task = new NearestBRTask(getActivity());
+            NearestBRTask task = new NearestBRTask(mContext);
             task.execute();
         }
     }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -23,6 +24,16 @@ import com.trackmapoop.dialog.SelectDialog;
 
 public class HomeFragment extends Fragment{
 	ListView locs;
+
+    private Context mContext;
+
+    public static HomeFragment newInstance(Context context)
+    {
+        HomeFragment fragment = new HomeFragment();
+        fragment.mContext = context;
+
+        return fragment;
+    }
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
