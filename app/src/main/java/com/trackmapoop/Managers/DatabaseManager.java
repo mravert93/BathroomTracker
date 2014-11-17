@@ -324,7 +324,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
     {
         Cursor cursor = db.query(BathroomsTable.TABLE_NAME,
                 null,
-                BathroomsTable.TABLE_NAME + "=?",
+                BathroomsTable.TITLE_COL + "=?",
                 new String[] {title},
                 null, null, null);
 

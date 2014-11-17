@@ -1,6 +1,5 @@
 package com.trackmapoop.fragments;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -37,8 +36,6 @@ import com.trackmapoop.data.BRConstants;
 import com.trackmapoop.data.Bathroom;
 import com.trackmapoop.data.NearestBathroomLocs;
 
-import retrofit.RetrofitError;
-
 public class MapFragment extends Fragment
 				implements ConnectionCallbacks, OnConnectionFailedListener, LocationListener, View.OnClickListener{
     private static final String TAG = "MAP FRAGMENT";
@@ -46,6 +43,7 @@ public class MapFragment extends Fragment
 	private static View view;
     private Button findNearestButton;
 	private GoogleMap map;
+    //TODO: Switch location client to GooglePlayServicesClient
 	private LocationClient lm;
 	public static Location currentLoc;
 

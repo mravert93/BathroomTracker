@@ -68,7 +68,7 @@ public class NearestBRTask extends AsyncTask<Void, Void, String>{
         }
         catch (RetrofitError e)
         {
-            Log.d("Retrofit error: ", e.getMessage());
+            Log.e("Retrofit error: ", e.getMessage());
         }
 
         return "Failure";
