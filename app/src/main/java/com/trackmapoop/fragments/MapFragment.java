@@ -19,11 +19,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
-import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
-import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderApi;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -37,14 +37,19 @@ import com.trackmapoop.data.Bathroom;
 import com.trackmapoop.data.NearestBathroomLocs;
 
 public class MapFragment extends Fragment
-				implements ConnectionCallbacks, OnConnectionFailedListener, LocationListener, View.OnClickListener{
+				implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, View.OnClickListener{
     private static final String TAG = "MAP FRAGMENT";
+
+    // Location update interval in millis
+    private static final int UPDATE_INTERVAL = 5000;
 
 	private static View view;
     private Button findNearestButton;
 	private GoogleMap map;
-    //TODO: Switch location client to GooglePlayServicesClient
-	private LocationClient lm;
+	private GoogleApiClient lm;
+
+    private LocationRequest locationRequest;
+    private FusedLocationProviderApi fusedLocationProviderApi = LocationServices.FusedLocationApi;
 	public static Location currentLoc;
 
     private Context mContext;
@@ -77,6 +82,16 @@ public class MapFragment extends Fragment
         return fragment;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceBundle)
+    {
+        super.onCreate(savedInstanceBundle);
+
+        locationRequest = LocationRequest.create();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(UPDATE_INTERVAL);
+    }
+
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
@@ -92,17 +107,14 @@ public class MapFragment extends Fragment
             findNearestButton = (Button) view.findViewById(R.id.findNearestButton);
             findNearestButton.setOnClickListener(this);
 
-            SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager()
-                    .findFragmentById(R.id.map);
-            if(mapFragment != null) {
-                    map = mapFragment.getMap();
-
-                    map.setMyLocationEnabled(true);
-            }
-
+            setupMapIfNeeded();
         } catch (InflateException e) {
             /* map is already there, just return view as it is */
         }
+
+        // TODO: TURN BUTTON TO FIND NEAREST BATHROOMS BACK ON
+        findNearestButton.setVisibility(View.GONE);
+
         return view;
     }
 	
@@ -128,6 +140,13 @@ public class MapFragment extends Fragment
         DatabaseManager manager = DatabaseManager.openDatabase(mContext);
 		List<Bathroom> baths = manager.getAllBathrooms();
         List<NearestBathroomLocs> nearest = manager.getNearestBathrooms();
+
+        setupMapIfNeeded();
+
+        if (map != null)
+        {
+            map.setMyLocationEnabled(true);
+        }
 
 		//Set up location manager and set markers on map
 		lm = getLocationClient();
@@ -160,14 +179,27 @@ public class MapFragment extends Fragment
     }
 
 	//Sets up the location client and zooms into the current location
-	public LocationClient getLocationClient() {
+	public GoogleApiClient getLocationClient() {
 		if(lm == null) {
-			return new LocationClient(
-					mContext,
-					this, this);
+            return new GoogleApiClient.Builder(mContext)
+                    .addApi(LocationServices.API)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .build();
 		}
         return lm;
 	}
+
+    private void setupMapIfNeeded()
+    {
+        if (map == null)
+        {
+            com.google.android.gms.maps.MapFragment mapFragment = (com.google.android.gms.maps.MapFragment) getActivity()
+                    .getFragmentManager().findFragmentById(R.id.map);
+
+            map = mapFragment.getMap();
+        }
+    }
 
 	@Override
 	public void onConnectionFailed(ConnectionResult result) {
@@ -176,15 +208,16 @@ public class MapFragment extends Fragment
 	}
 
 	@Override
-	public void onConnected(Bundle connectionHint) {
-		lm.requestLocationUpdates(REQUEST, this);
+	public void onConnected(Bundle connectionHint)
+    {
+        fusedLocationProviderApi.requestLocationUpdates(lm, locationRequest,this)   ;
 	}
 
-	@Override
-	public void onDisconnected() {
-		//Do nothing
-		
-	}
+    @Override
+    public void onConnectionSuspended(int i)
+    {
+        // no-op
+    }
 
 	@Override
 	public void onLocationChanged(Location location) {
