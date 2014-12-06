@@ -2,11 +2,11 @@
 <pre-dex-items>
 
     <item
-        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/okio-1.0.0-2a693760dc3b0479268e9511b0795f8919906434.jar"
-        jar="/home/mike/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.0.0/2534c458682c73f5b9871131ab3098d3f987ca3/okio-1.0.0.jar"
+        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/Parse-1.7.1-a29a49cbb86b1c7f934024c2b4a8ee5abd9c971b.jar"
+        jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/libs/Parse-1.7.1.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="02534c458682c73f5b9871131ab3098d3f987ca3"/>
+        sha1="87c45f9f66da531a65f065ee32f603c7e6db1528"/>
     <item
         dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/okhttp-2.0.0-24bc7f72ba705b99c378457948e98d95d62a2854.jar"
         jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/libs/okhttp-2.0.0.jar"
@@ -25,6 +25,36 @@
         jumboMode="false"
         revision="20.0.0"
         sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
+    <item
+        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.2-2a7675e8f228e904e567cfa288e471fcd45e7e34.jar"
+        jar="/home/mike/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.2/91c20388c9a45f62b5ed8fe0502bb76ff6251fc7/bolts-android-1.1.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="91c20388c9a45f62b5ed8fe0502bb76ff6251fc7"/>
+    <item
+        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-2.0.0-d1ba9d4b88fc9f14c12cd82692f5b9df4bad1391.jar"
+        jar="/home/mike/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.0.0/afe8399d352713b66e597e9670c741d1e60ae923/okhttp-urlconnection-2.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="afe8399d352713b66e597e9670c741d1e60ae923"/>
+    <item
+        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-38e0d5d1787424d1fdba8acda5d4d1db4a2da705.jar"
+        jar="/home/mike/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/okio-1.0.0-2a693760dc3b0479268e9511b0795f8919906434.jar"
+        jar="/home/mike/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.0.0/2534c458682c73f5b9871131ab3098d3f987ca3/okio-1.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="02534c458682c73f5b9871131ab3098d3f987ca3"/>
+    <item
+        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/release/localytics-4714ec79b9f141ac5bff672d84db378c1a20b828.jar"
+        jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/libs/localytics.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="6369f7ea501208b6f827ae8f28914c7dc994a2d3"/>
     <item
         dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7b4cf0abdbda39c751d7b983ec7accb6bc2a71ee.jar"
         jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
@@ -50,22 +80,10 @@
         revision="20.0.0"
         sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
     <item
-        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-2.0.0-d1ba9d4b88fc9f14c12cd82692f5b9df4bad1391.jar"
-        jar="/home/mike/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.0.0/afe8399d352713b66e597e9670c741d1e60ae923/okhttp-urlconnection-2.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="afe8399d352713b66e597e9670c741d1e60ae923"/>
-    <item
         dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/classes-226e1250aba4c9d234aff4a33d6c7b32c756e421.jar"
         jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/5.0.77/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="b6a82434c1eca686607867cd906bcc80ed987837"/>
-    <item
-        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-38e0d5d1787424d1fdba8acda5d4d1db4a2da705.jar"
-        jar="/home/mike/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
 
 </pre-dex-items>

@@ -13,13 +13,25 @@
     <string name="pic">Change Bathroom Picture</string>
     <string name="count">View Bathroom Info</string>
     <string name="rating">Rate the Bathroom</string>
+
+    <!-- Login Screen -->
     <string name="title_activity_login">Login</string>
     <string name="username">Username</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="password_mismatch">Passwords don\'t match!</string>
+    <string name="password_mismatch_desc">Passwords need to match yo!</string>
+
+    <!-- Unsynced bathrooms -->
+    <string name="unsynced_dialog_title">Welcome!</string>
+    <string name="unsynced_dialog_desc">Looks like you already have some bathrooms saved, would you like to save them for your new user account?</string>
 
     <!-- Nearest Bathrooms Web Call -->
     <string name="nearest_amenity">toilet</string>
     <string name="nearest_mode">json</string>
+    <string name="title_activity_brsplash_screen">BRSplashScreen</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

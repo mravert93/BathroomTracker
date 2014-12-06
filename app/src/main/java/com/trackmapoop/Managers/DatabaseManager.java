@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ import java.util.List;
  */
 public class DatabaseManager extends SQLiteOpenHelper{
     public static final String TAG = "DatabaseManager";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "TrackBathroom.db";
 
     private final SQLiteDatabase db;
@@ -140,6 +141,13 @@ public class DatabaseManager extends SQLiteOpenHelper{
                 entry.put(BathroomsTable.LAT_COL, bathroom.getLat());
                 entry.put(BathroomsTable.LONG_COL, bathroom.getLong());
                 entry.put(BathroomsTable.COUNT, bathroom.getCount());
+
+                if (!(bathroom.getParseObjectId() == null || bathroom.getParseObjectId().isEmpty()))
+                {
+                    entry.put(BathroomsTable.PARSE_OBJECT_ID, bathroom.getParseObjectId());
+                    entry.put(BathroomsTable.PARSE_CREATED_AT, bathroom.getParseCreatedAt().getTime());
+                    entry.put(BathroomsTable.PARSE_LAST_UPDATED, bathroom.getParseLastUpdated().getTime());
+                }
 
                 //insert the newest row
                 int newRowId = db.update(BathroomsTable.TABLE_NAME, entry, BathroomsTable.TITLE_COL + " = ?", new String[] {bathroom.getTitle()});
@@ -267,6 +275,40 @@ public class DatabaseManager extends SQLiteOpenHelper{
         return bathrooms;
     }
 
+    public List<Bathroom> getUnsyncedBathrooms()
+    {
+        Cursor cursor = null;
+        List<Bathroom> bathrooms = new ArrayList<Bathroom>();
+
+        try
+        {
+            cursor = db.query(BathroomsTable.TABLE_NAME,
+                    null,
+                    BathroomsTable.PARSE_OBJECT_ID + "=null",
+                    null,
+                    null, null, null);
+
+            while (cursor.moveToNext())
+            {
+                Bathroom newBr = createBathroomFromCursor(cursor);
+
+                if (newBr != null)
+                {
+                    bathrooms.add(newBr);
+                }
+            }
+        }
+        finally
+        {
+            if (cursor != null)
+            {
+                cursor.close();
+            }
+        }
+
+        return bathrooms;
+    }
+
     public Bathroom createBathroomFromCursor(Cursor cursor)
     {
         Bathroom br = null;
@@ -281,6 +323,9 @@ public class DatabaseManager extends SQLiteOpenHelper{
                 br.setLat(cursor.getDouble(cursor.getColumnIndexOrThrow(BathroomsTable.LAT_COL)));
                 br.setLong(cursor.getDouble(cursor.getColumnIndexOrThrow(BathroomsTable.LONG_COL)));
                 br.setCount(cursor.getInt(cursor.getColumnIndexOrThrow(BathroomsTable.COUNT)));
+                br.setParObjectId(cursor.getString(cursor.getColumnIndexOrThrow(BathroomsTable.PARSE_OBJECT_ID)));
+                br.setParseCreatedAt(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(BathroomsTable.PARSE_CREATED_AT))));
+                br.setParseLastUpdated(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(BathroomsTable.PARSE_LAST_UPDATED))));
             }
             catch (IllegalArgumentException e)
             {

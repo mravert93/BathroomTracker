@@ -1,10 +1,15 @@
 package com.trackmapoop.data;
 
+import java.util.Date;
+
 public class Bathroom {
 	private String mtitle;
 	private double mlongitude;
 	private double mlatitude;
 	private int mcount;
+    private String mParseObjectId;
+    private Date mParseCreatedAt;
+    private Date mParseLastUpdated;
 	
 	public Bathroom() {}
 	
@@ -39,4 +44,34 @@ public class Bathroom {
 	public void setCount(int mcount) {
 		this.mcount = mcount;
 	}
+
+    public String getParseObjectId()
+    {
+        return mParseObjectId;
+    }
+
+    public void setParObjectId(String id)
+    {
+        mParseObjectId = id;
+    }
+
+    public Date getParseCreatedAt()
+    {
+        return mParseCreatedAt;
+    }
+
+    public void setParseCreatedAt(Date createdAt)
+    {
+        mParseCreatedAt = createdAt;
+    }
+
+    public Date getParseLastUpdated()
+    {
+        return mParseLastUpdated;
+    }
+
+    public void setParseLastUpdated(Date lastUpdated)
+    {
+        mParseLastUpdated = lastUpdated;
+    }
 }

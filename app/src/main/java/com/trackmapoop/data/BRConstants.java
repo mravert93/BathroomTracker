@@ -13,4 +13,19 @@ public class BRConstants {
     public static final String HTTPS = "https://";
 
     public static final String NEAREST_BR_API_HOST = "amenimaps.com";
+
+    // Parse constants
+    public static final String PARSE_APP_KEY = "gpQzM3CfFFUtm506vCU2FCTlio3Q4UmF6fCfwID5";
+    public static final String PARSE_CLIENT_KEY = "rNtbWfEJmEdhaI4ZzRDU2631O6cNepFxJ09IEjcJ";
+
+    // Parse object strings
+    public static final String BATHROOM_TITLE = "BATHROOM_TITLE";
+    public static final String BATHROOM_LONG = "BATHROOM_LONGITUDE";
+    public static final String BATHROOM_LAT = "BATHROOM_LATITUDE";
+    public static final String BATHROOM_COUNT = "BATHROOM_COUNT";
+    public static final String BATHROOM_USER = "USER";
+
+    // User settings
+    public static final String PARSE_USERNAME = "parse_username";
+    public static final String PARSE_SESSION_TOKEN = "parse_sesson_token";
 }

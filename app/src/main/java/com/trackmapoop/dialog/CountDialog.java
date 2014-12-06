@@ -16,6 +16,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.trackmapoop.Managers.DatabaseManager;
+import com.trackmapoop.Managers.ParseManager;
 import com.trackmapoop.activities.R;
 import com.trackmapoop.data.MyArrayAdapter;
 import com.trackmapoop.fragments.HomeFragment;
@@ -101,8 +102,7 @@ public class CountDialog extends DialogFragment{
 			@Override
 			public void onClick(View arg0) {
                 //Add new bathroom to database
-                DatabaseManager manager = DatabaseManager.openDatabase(getActivity());
-                manager.deleteBathroom(mTitle);
+                ParseManager.getInstance(getActivity()).deleteBathroom(mTitle);
                 
                 //Update the ArrayAdapter
                 ListView locs = (ListView) getActivity().findViewById(R.id.locList);

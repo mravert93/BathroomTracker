@@ -63,6 +63,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="okhttp-urlconnection-2.0.0" level="project" />
     <orderEntry type="library" exported="" name="retrofit-1.6.1" level="project" />
+    <orderEntry type="library" exported="" name="localytics" level="project" />
+    <orderEntry type="library" exported="" name="Parse-1.7.1" level="project" />
     <orderEntry type="library" exported="" name="crashlytics" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="okio-1.0.0" level="project" />
@@ -72,6 +74,7 @@
     <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="gson-2.3" level="project" />
+    <orderEntry type="library" exported="" name="bolts-android-1.1.2" level="project" />
   </component>
 </module>
 

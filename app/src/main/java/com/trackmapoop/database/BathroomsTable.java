@@ -9,6 +9,9 @@ public class BathroomsTable {
     public static final String LONG_COL = "longitude";
     public static final String LAT_COL = "latitude";
     public static final String COUNT = "count";
+    public static final String PARSE_OBJECT_ID = "parseObjectId";
+    public static final String PARSE_CREATED_AT = "parseCreatedAt";
+    public static final String PARSE_LAST_UPDATED = "parseLastUpdated";
 
     // Should never get called
     private BathroomsTable() {}
