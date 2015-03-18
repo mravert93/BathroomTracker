@@ -720,7 +720,7 @@
     <!-- From: file:/home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/values/com_crashlytics_export_strings.xml -->
     <eat-comment />
 
-    <string name="com.crashlytics.android.build_id" translatable="false">fec3b745-6581-4cfc-9196-b3e24445ad5f</string>
+    <string name="com.crashlytics.android.build_id" translatable="false">5a1289e1-a668-4ca3-bf98-8e757c64b7eb</string>
     <!-- From: file:/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/5.0.77/res/values/common_strings.xml -->
     <eat-comment />
 
@@ -755,14 +755,22 @@
     <string name="count">View Bathroom Info</string>
     <string name="countText">Amount You\'ve Used Bathroom:</string>
     <string name="countTitle">Bathroom Information:</string>
+    <string name="hello_world">Hello world!</string>
     <string name="login">Login</string>
     <string name="nearest_amenity">toilet</string>
     <string name="nearest_mode">json</string>
+    <string name="password">Password</string>
+    <string name="password_mismatch">Passwords don\'t match!</string>
+    <string name="password_mismatch_desc">Passwords need to match yo!</string>
     <string name="pic">Change Bathroom Picture</string>
     <string name="rating">Rate the Bathroom</string>
     <string name="register">Register</string>
     <string name="remove_button">Remove Bathroom</string>
+    <string name="submit">Submit</string>
+    <string name="title_activity_brsplash_screen">BRSplashScreen</string>
     <string name="title_activity_login">Login</string>
+    <string name="unsynced_dialog_desc">Looks like you already have some bathrooms saved, would you like to save them for your new user account?</string>
+    <string name="unsynced_dialog_title">Welcome!</string>
     <string name="username">Username</string>
     <!-- From: file:/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/5.0.77/res/values/wallet_strings.xml -->
     <eat-comment />

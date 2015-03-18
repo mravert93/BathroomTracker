@@ -4,12 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,15 +24,30 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.trackmapoop.Managers.DatabaseManager;
+import com.trackmapoop.Managers.ParseManager;
 import com.trackmapoop.activities.R;
+import com.trackmapoop.data.BRConstants;
 import com.trackmapoop.data.Bathroom;
 import com.trackmapoop.data.MyArrayAdapter;
 import com.trackmapoop.dialog.SelectDialog;
 
 public class HomeFragment extends Fragment{
+    public static final String TAG = "HOME_FRAGMENT";
+
 	ListView locs;
+    List<Bathroom> bathroomList;
 
     private Context mContext;
+
+    private BroadcastReceiver onBathroomsUpdatedComplete = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "Bathrooms have been updated");
+
+            DatabaseManager manager = DatabaseManager.openDatabase(mContext);
+            bathroomList = manager.getAllBathrooms();
+        }
+    };
 
     public static HomeFragment newInstance(Context context)
     {
@@ -56,17 +78,68 @@ public class HomeFragment extends Fragment{
         	  }
         });
 
+        registerForContextMenu(locs);
+
         return V;
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        IntentFilter updatedBathroomFilter = new IntentFilter(BRConstants.BR_UPDATED_ACTION);
+        LocalBroadcastManager.getInstance(mContext)
+                .registerReceiver(onBathroomsUpdatedComplete, updatedBathroomFilter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        LocalBroadcastManager.getInstance(mContext).unregisterReceiver(onBathroomsUpdatedComplete);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
+    {
+        if (v.getId() == R.id.locList)
+        {
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+            Bathroom selected = bathroomList.get(info.position);
+            menu.setHeaderTitle(selected.getTitle());
+            menu.add("Delete");
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item)
+    {
+        AdapterView.AdapterContextMenuInfo info =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        Bathroom selected = bathroomList.get(info.position);
+
+        //Remove bathroom to database
+        ParseManager.getInstance(getActivity()).deleteBathroom(selected.getTitle());
+
+        //Update the ArrayAdapter
+        this.setAdapter(locs, getActivity());
+        ((MyArrayAdapter) locs.getAdapter()).notifyDataSetChanged();
+
+        Intent intent = new Intent(BRConstants.BR_UPDATED_ACTION);
+        LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
+
+        return true;
     }
 	
 	//Method that fills the given list's array adapter
 	public void setAdapter(ListView list, Activity activity) {
         DatabaseManager manager = DatabaseManager.openDatabase(getActivity());
         
-        List<Bathroom> baths = manager.getAllBathrooms();
-        List<String> titles = getTitles(baths);
-        List<String> locations = getLocs(baths);
-        List<String> counts = getCounts(baths);
+        bathroomList = manager.getAllBathrooms();
+        List<String> titles = getTitles(bathroomList);
+        List<String> locations = getLocs(bathroomList);
+        List<String> counts = getCounts(bathroomList);
 
         MyArrayAdapter adapter = new MyArrayAdapter(activity, titles, locations, counts);
         list.setAdapter(adapter);

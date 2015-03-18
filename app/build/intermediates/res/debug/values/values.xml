@@ -720,7 +720,7 @@
     <!-- From: file:/home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/values/com_crashlytics_export_strings.xml -->
     <eat-comment />
 
-    <string name="com.crashlytics.android.build_id" translatable="false">5a1289e1-a668-4ca3-bf98-8e757c64b7eb</string>
+    <string name="com.crashlytics.android.build_id" translatable="false">b1ec6599-40f2-43e9-9df3-8d5551eb3212</string>
     <!-- From: file:/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/5.0.77/res/values/common_strings.xml -->
     <eat-comment />
 

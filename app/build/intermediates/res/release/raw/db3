@@ -1,0 +1,3 @@
+ALTER TABLE bathrooms ADD COLUMN parseObjectId TEXT;
+ALTER TABLE bathrooms ADD COLUMN parseCreatedAt TEXT;
+ALTER TABLE bathrooms ADD COLUMN parseLastUpdated TEXT;

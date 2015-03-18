@@ -172,6 +172,9 @@ public class MainTabs extends FragmentActivity implements CustomDialog.NoticeDia
         HomeFragment home = new HomeFragment();
         home.setAdapter(locs, this);
         ((MyArrayAdapter) locs.getAdapter()).notifyDataSetChanged();
+
+        Intent intent = new Intent(BRConstants.BR_UPDATED_ACTION);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
 	}
 
 	@Override

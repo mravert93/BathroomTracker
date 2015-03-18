@@ -56,17 +56,17 @@
         revision="20.0.0"
         sha1="6369f7ea501208b6f827ae8f28914c7dc994a2d3"/>
     <item
-        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7b4cf0abdbda39c751d7b983ec7accb6bc2a71ee.jar"
-        jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
-    <item
         dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/crashlytics-60fea57793f4af365981a64ec73ac74350c3ad7b.jar"
         jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/libs/crashlytics.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="0e821eafa1bf489a26bdb71f95078c26785b37a1"/>
+    <item
+        dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7b4cf0abdbda39c751d7b983ec7accb6bc2a71ee.jar"
+        jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
     <item
         dex="/home/mike/AndroidstudioProjects/TrackMaPoop/app/build/intermediates/pre-dexed/debug/retrofit-1.6.1-4402cd782080cf2efd7a0b8e1d4876d2d3e3f610.jar"
         jar="/home/mike/AndroidstudioProjects/TrackMaPoop/app/libs/retrofit-1.6.1.jar"

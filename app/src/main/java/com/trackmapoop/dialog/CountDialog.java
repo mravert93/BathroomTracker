@@ -101,7 +101,7 @@ public class CountDialog extends DialogFragment{
 
 			@Override
 			public void onClick(View arg0) {
-                //Add new bathroom to database
+                //Remove bathroom to database
                 ParseManager.getInstance(getActivity()).deleteBathroom(mTitle);
                 
                 //Update the ArrayAdapter

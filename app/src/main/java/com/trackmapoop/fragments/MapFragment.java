@@ -74,6 +74,16 @@ public class MapFragment extends Fragment
         }
     };
 
+    private BroadcastReceiver onBathroomsUpdatedComplete = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "Bathrooms have been updated");
+
+            DatabaseManager manager = DatabaseManager.openDatabase(mContext);
+            setupBathroomsAndMarkers(manager);
+        }
+    };
+
     public static MapFragment newInstance(Context context)
     {
         MapFragment fragment = new MapFragment();
@@ -123,6 +133,7 @@ public class MapFragment extends Fragment
         super.onPause();
 
         LocalBroadcastManager.getInstance(mContext).unregisterReceiver(onBathroomSearchComplete);
+        LocalBroadcastManager.getInstance(mContext).unregisterReceiver(onBathroomsUpdatedComplete);
 
         if (lm != null) {
             lm.disconnect();
@@ -134,11 +145,13 @@ public class MapFragment extends Fragment
 		super.onResume();
 
         IntentFilter filter = new IntentFilter(BRConstants.NEAREST_BR_ACTION);
+        IntentFilter updatedBathroomFilter = new IntentFilter(BRConstants.BR_UPDATED_ACTION);
         LocalBroadcastManager.getInstance(mContext).registerReceiver(onBathroomSearchComplete, filter);
+        LocalBroadcastManager.getInstance(mContext)
+                .registerReceiver(onBathroomsUpdatedComplete, updatedBathroomFilter);
 
 		//Read from the database of locations
         DatabaseManager manager = DatabaseManager.openDatabase(mContext);
-		List<Bathroom> baths = manager.getAllBathrooms();
         List<NearestBathroomLocs> nearest = manager.getNearestBathrooms();
 
         setupMapIfNeeded();
@@ -152,9 +165,15 @@ public class MapFragment extends Fragment
 		lm = getLocationClient();
 		lm.connect();
         hasZoomed = false;
-        setMarkers(baths);
+        setupBathroomsAndMarkers(manager);
         setNearestMarkers(nearest);
 	}
+
+    private void setupBathroomsAndMarkers(DatabaseManager manager)
+    {
+        List<Bathroom> baths = manager.getAllBathrooms();
+        setMarkers(baths);
+    }
 
     public void setMarkers(List<Bathroom> baths) {
         map.clear();

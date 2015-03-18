@@ -10,6 +10,9 @@ import android.view.MenuItem;
 import android.view.Window;
 
 import com.crashlytics.android.Crashlytics;
+import com.parse.LogInCallback;
+import com.parse.ParseAnonymousUtils;
+import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.trackmapoop.activities.Login;
 import com.trackmapoop.activities.MainTabs;
@@ -34,23 +37,50 @@ public class BRSplashScreen extends Activity
                 String user = BRPreferenceManager.getInstance(BRSplashScreen.this).getParseUsername();
                 ParseUser parseUser = ParseUser.getCurrentUser();
 
-                if (user == null && parseUser == null)
+                if (parseUser == null)
                 {
-                    Intent i = new Intent(BRSplashScreen.this, Login.class);
-                    startActivity(i);
+                    ParseAnonymousUtils.logIn(new LogInCallback() {
 
-                    finish();
+                        @Override
+                        public void done(ParseUser parseUser, ParseException e)
+                        {
+                            showMainTabs(parseUser);
+                        }
+                    });
                 }
                 else
                 {
-                    BRPreferenceManager.getInstance(BRSplashScreen.this).setParseUsername(parseUser.getUsername());
-
-                    Intent i = new Intent(BRSplashScreen.this, MainTabs.class);
-                    startActivity(i);
-
-                    finish();
+                    showMainTabs(parseUser);
                 }
+
+                // Uncomment this once you're ready for user system
+//                if (user == null && parseUser == null)
+//                {
+//                    Intent i = new Intent(BRSplashScreen.this, Login.class);
+//                    startActivity(i);
+//
+//                    finish();
+//                }
+//                else
+//                {
+//                    BRPreferenceManager.getInstance(BRSplashScreen.this).setParseUsername(parseUser.getUsername());
+//
+//                    Intent i = new Intent(BRSplashScreen.this, MainTabs.class);
+//                    startActivity(i);
+//
+//                    finish();
+//                }
             }
         }, TIME_OUT);
+    }
+
+    void showMainTabs(ParseUser parseUser)
+    {
+        BRPreferenceManager.getInstance(BRSplashScreen.this).setParseUsername(parseUser.getUsername());
+
+        Intent i = new Intent(BRSplashScreen.this, MainTabs.class);
+        startActivity(i);
+
+        finish();
     }
 }
