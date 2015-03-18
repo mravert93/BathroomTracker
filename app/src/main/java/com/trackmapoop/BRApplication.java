@@ -2,6 +2,8 @@ package com.trackmapoop;
 
 import android.app.Application;
 
+import com.localytics.android.LocalyticsActivityLifecycleCallbacks;
+import com.localytics.android.LocalyticsAmpSession;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -21,15 +23,7 @@ public class BRApplication extends Application {
         // Initialize Parse
         Parse.initialize(this, BRConstants.PARSE_APP_KEY, BRConstants.PARSE_CLIENT_KEY);
 
-        // Testing parse out
-        final ParseObject parseObject = new ParseObject("TestObject");
-        parseObject.put("foo", "bar");
-        parseObject.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                String id = parseObject.getObjectId();
-                Date createdAt = parseObject.getCreatedAt();
-            }
-        });
+        // Initialize Localytics
+        registerActivityLifecycleCallbacks(new LocalyticsActivityLifecycleCallbacks(new LocalyticsAmpSession(this)));
     }
 }

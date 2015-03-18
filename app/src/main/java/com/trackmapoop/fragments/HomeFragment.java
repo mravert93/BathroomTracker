@@ -1,7 +1,9 @@
 package com.trackmapoop.fragments;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -23,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.trackmapoop.Managers.AnalyticsManager;
 import com.trackmapoop.Managers.DatabaseManager;
 import com.trackmapoop.Managers.ParseManager;
 import com.trackmapoop.activities.R;
@@ -126,8 +129,14 @@ public class HomeFragment extends Fragment{
         this.setAdapter(locs, getActivity());
         ((MyArrayAdapter) locs.getAdapter()).notifyDataSetChanged();
 
+        // Broadcast the event so the map and list of bathrooms can be updated
         Intent intent = new Intent(BRConstants.BR_UPDATED_ACTION);
         LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
+
+        // Log it!
+        Map<String, String> attrs = new HashMap<String, String>();
+        attrs.put("Bathroom Name", selected.getTitle());
+        AnalyticsManager.getInstance(mContext).tagEvent("Bathroom Deleted", attrs);
 
         return true;
     }

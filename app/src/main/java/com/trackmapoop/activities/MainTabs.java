@@ -1,7 +1,9 @@
 package com.trackmapoop.activities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -36,6 +38,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.trackmapoop.Managers.AnalyticsManager;
 import com.trackmapoop.Managers.DatabaseManager;
 import com.trackmapoop.Managers.ParseManager;
 import com.trackmapoop.Managers.WebCallsManager;
@@ -145,6 +148,7 @@ public class MainTabs extends FragmentActivity implements CustomDialog.NoticeDia
 	}
 	
 	public void addLoc(View view) {
+        AnalyticsManager.getInstance(this).tagEvent("Add Bathroom Selected");
         
 		CustomDialog dialog = new CustomDialog();
 		dialog.show(getSupportFragmentManager(), "addPlace");
@@ -163,6 +167,10 @@ public class MainTabs extends FragmentActivity implements CustomDialog.NoticeDia
             newBath.setCount(1);
 
             ParseManager.getInstance(MainTabs.this).saveBathroom(newBath);
+
+            Map<String, String> attrs = new HashMap<String, String>();
+            attrs.put("Bathroom Name", title);
+            AnalyticsManager.getInstance(this).tagEvent("Bathroom Added", attrs);
         }
         else
         {
@@ -185,6 +193,12 @@ public class MainTabs extends FragmentActivity implements CustomDialog.NoticeDia
         bathroom.setCount(newcount);
 
         ParseManager.getInstance(this).saveBathroom(bathroom);
+
+        // Log it!
+        Map<String, String> attrs = new HashMap<String, String>();
+        attrs.put("Bathroom Name", title);
+        attrs.put("Bathroom Count", Integer.toString(newcount));
+        AnalyticsManager.getInstance(this).tagEvent("Bathroom Count Changed", attrs);
 
         // Update list on home tab
         ListView locs = (ListView) findViewById(R.id.locList);

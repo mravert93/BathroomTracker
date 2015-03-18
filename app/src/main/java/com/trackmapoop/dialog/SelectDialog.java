@@ -2,6 +2,8 @@ package com.trackmapoop.dialog;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.trackmapoop.Managers.AnalyticsManager;
 import com.trackmapoop.activities.R;
 import com.trackmapoop.data.MyArrayAdapter;
 import com.trackmapoop.fragments.HomeFragment;
@@ -85,6 +88,11 @@ public class SelectDialog extends DialogFragment{
 			@Override
 			public void onClick(View arg0) {
 				takePic();
+
+                // Log it!
+                Map<String, String> attrs = new HashMap<String, String>();
+                attrs.put("Bathroom Name", mTitle);
+                AnalyticsManager.getInstance(getActivity()).tagEvent("Picture Taken", attrs);
 
                 ListView locs = (ListView) getActivity().findViewById(R.id.locList);
                 HomeFragment home = new HomeFragment();
