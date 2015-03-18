@@ -25,12 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cdf01a4-667a-424c-b8a1-18143d4ba1b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/Managers/AnalyticsManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/BRApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/BRApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/fragments/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/fragments/HomeFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/activities/MainTabs.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/activities/MainTabs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/dialog/SelectDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/dialog/SelectDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
     </list>
     <ignored path="TrackMaPoop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,10 +48,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AnalyticsManager.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6929348" vertical-offset="540" max-vertical-offset="1335">
+              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnalyticsManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/trackmapoop/Managers/AnalyticsManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.16304348" vertical-offset="405" max-vertical-offset="780">
+            <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="780">
               <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -828,7 +833,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/activities/Login.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/Managers/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/Managers/ParseManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_tabs.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/home_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/BRSplashScreen.java" />
@@ -840,6 +844,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/fragments/HomeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/dialog/SelectDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/trackmapoop/Managers/AnalyticsManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -1166,7 +1171,7 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Test" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/keystore/signedkey.keystore" />
-    <property name="SearchEverywhereHistoryKey" value="map&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/fragments/MapFragment.java&#10;home&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/fragments/HomeFragment.java&#10;&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/AnalyticsManager.java&#10;maint&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/MainTabs.java&#10;and&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;hom&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/fragments/HomeFragment.java&#10;custom&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/dialog/CustomDialog.java&#10;maintab&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/MainTabs.java&#10;nearest&#9;PSI&#9;JAVA://com.trackmapoop.data.BRConstants#NEAREST_BR_ACTION&#10;select&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/dialog/SelectDialog.java&#10;main&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/layout/activity_main_tabs.xml&#10;mainta&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/layout/activity_main_tabs.xml&#10;parse&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/ParseManager.java&#10;brspl&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/BRSplashScreen.java&#10;androidma&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;data&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/DatabaseManager.java&#10;login&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/Login.java&#10;android&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;db&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/raw/db3&#10;brco&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/BRConstants.java&#10;bath&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/database/BathroomsTable.java&#10;brcon&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/BRConstants.java&#10;str&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/values/strings.xml&#10;sp&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/BRSplashScreen.java&#10;logi&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/Login.java&#10;br&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/BRConstants.java&#10;datab&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/DatabaseManager.java&#10;log&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/Login.java&#10;string&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/values/strings.xml&#10;andr&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;bathr&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/database/BathroomsTable.java&#10;brc&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/BRConstants.java&#10;gradle&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/build.gradle&#10;build&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/build.gradle&#10;myarr&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/MyArrayAdapter.java&#10;ma&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/MainTabs.java&#10;mapfr&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/fragments/MapFragment.java&#10;androi&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;mani&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;dat&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/DatabaseManager.java" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;map&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/fragments/MapFragment.java&#10;home&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/fragments/HomeFragment.java&#10;maint&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/MainTabs.java&#10;and&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;hom&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/fragments/HomeFragment.java&#10;custom&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/dialog/CustomDialog.java&#10;maintab&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/MainTabs.java&#10;nearest&#9;PSI&#9;JAVA://com.trackmapoop.data.BRConstants#NEAREST_BR_ACTION&#10;select&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/dialog/SelectDialog.java&#10;main&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/layout/activity_main_tabs.xml&#10;mainta&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/layout/activity_main_tabs.xml&#10;parse&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/ParseManager.java&#10;brspl&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/BRSplashScreen.java&#10;androidma&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;data&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/DatabaseManager.java&#10;login&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/Login.java&#10;android&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;db&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/raw/db3&#10;brco&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/BRConstants.java&#10;bath&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/database/BathroomsTable.java&#10;brcon&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/BRConstants.java&#10;str&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/values/strings.xml&#10;sp&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/BRSplashScreen.java&#10;logi&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/Login.java&#10;br&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/BRConstants.java&#10;datab&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/DatabaseManager.java&#10;log&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/Login.java&#10;string&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/res/values/strings.xml&#10;andr&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;bathr&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/database/BathroomsTable.java&#10;brc&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/BRConstants.java&#10;gradle&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/build.gradle&#10;build&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/build.gradle&#10;myarr&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/data/MyArrayAdapter.java&#10;ma&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/activities/MainTabs.java&#10;mapfr&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/fragments/MapFragment.java&#10;androi&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;mani&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/AndroidManifest.xml&#10;dat&#9;FILE&#9;file:///home/mike/AndroidstudioProjects/TrackMaPoop/app/src/main/java/com/trackmapoop/Managers/DatabaseManager.java" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="options.lastSelected" value="editor.preferences.smartKeys" />
@@ -1778,14 +1783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1335">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/trackmapoop/Managers/DatabaseManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5355" max-vertical-offset="6465">
@@ -1857,13 +1854,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/trackmapoop/Managers/AnalyticsManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.16304348" vertical-offset="405" max-vertical-offset="780">
+        <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="780">
           <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#855#856#0" expanded="true" />
             <element signature="e#908#909#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6929348" vertical-offset="540" max-vertical-offset="1335">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
